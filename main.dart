@@ -1,5 +1,3 @@
-void main() {
-  /*
-  print(user.name);
-  */
-}
+import 'Account.dart';
+
+void main(List<String> args) {}

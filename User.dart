@@ -1,23 +1,24 @@
 class User {
-  String name;
-  String email;
-  int password;
-  int phone;
-  int cpf;
+  String? name;
+  String? email;
+  int? password;
+  int? phone;
+  int? cpf;
+  late List<Address> address;
 
-  User({
-    required this.name,
-    required this.email,
-    required this.password,
-    required this.phone,
-    required this.cpf,
-  });
+  User(
+      this.name, this.email, this.password, this.phone, this.cpf, this.address);
 }
 
-User user = User(
-  name: "Maria Eduarda",
-  email: "dias@gmail.com",
-  password: 0,
-  phone: 4188906754,
-  cpf: 14178634589,
-);
+class Address {
+  String? street;
+  String? district;
+  String? city;
+  String? state;
+  int? n;
+  int? zcode;
+  String? complement;
+
+  Address(this.street, this.district, this.city, this.state, this.n, this.zcode,
+      this.complement);
+}
