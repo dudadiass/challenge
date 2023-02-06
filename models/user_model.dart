@@ -4,17 +4,18 @@ class UserModel {
   final String password;
   final String phone;
   final String cpf;
-  final double? monthlyIncome;
+  final String? monthlyIncome;
   final AddressModel address;
 
-  UserModel(
-      {required this.name,
-      required this.email,
-      required this.password,
-      required this.phone,
-      required this.cpf,
-      required this.address,
-      required this.monthlyIncome}); //construtor para instancia
+  UserModel({
+    required this.name,
+    required this.email,
+    required this.password,
+    required this.phone,
+    required this.cpf,
+    required this.address,
+    required this.monthlyIncome,
+  }); //construtor para instancia
 }
 
 class AddressModel {
@@ -22,16 +23,17 @@ class AddressModel {
   final String district;
   final String city;
   final String state;
-  final String nAddress;
+  final String numberAddress;
   final String zipCode;
-  final String complement;
+  final String? complementAddress;
 
-  AddressModel(
-      {required this.street,
-      required this.district,
-      required this.city,
-      required this.state,
-      required this.nAddress,
-      required this.zipCode,
-      required this.complement});
+  AddressModel({
+    required this.street,
+    required this.district,
+    required this.city,
+    required this.state,
+    required this.numberAddress,
+    required this.zipCode,
+    required this.complementAddress,
+  });
 }

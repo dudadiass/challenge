@@ -1,42 +1,51 @@
+import 'card_model.dart';
 import 'user_model.dart';
 
 class AccountModel {
-  final String branch;
+  final String branch; //agencia
   final String bank;
   final String accountNumber;
-  double balance;
+  double _balance;
   final UserModel user;
+  double get balance => _balance;
 
-  AccountModel(
-      {required this.branch,
-      required this.bank,
-      required this.accountNumber,
-      required this.balance,
-      required this.user});
+  AccountModel({
+    required this.branch,
+    required this.bank,
+    required this.accountNumber,
+    required double balance,
+    required this.user,
+  }) : _balance = balance;
 
-  void transfer() {}
+  void transfer() {} //tranferencia
 
-  void withdraw() {}
+  void withdraw() {} //saque
 
-  void deposit() {}
+  void deposit() {} //deposito
 }
 
-class AccountDeposit extends AccountModel {
-  AccountDeposit(
-      {required super.branch,
-      required super.bank,
-      required super.accountNumber,
-      required super.balance,
-      required super.user});
+class AccountDepositModel extends AccountModel {
+  final CardModel cardModel;
+  AccountDepositModel(
+    this.cardModel, {
+    required super.branch,
+    required super.bank,
+    required super.accountNumber,
+    required super.balance,
+    required super.user,
+  });
 }
 
-class AccountCurrent extends AccountModel {
-  AccountCurrent(
-      {required super.branch,
-      required super.bank,
-      required super.accountNumber,
-      required super.balance,
-      required super.user});
+class AccountCurrentModel extends AccountModel {
+  final CreditCardModel creditCardModel;
+  AccountCurrentModel(
+    this.creditCardModel, {
+    required super.branch,
+    required super.bank,
+    required super.accountNumber,
+    required super.balance,
+    required super.user,
+  });
 
-  void takeLoan() {}
+  void takeLoan() {} //emprestimo
 }
