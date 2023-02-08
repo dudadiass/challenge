@@ -170,7 +170,7 @@ Caso alguma validação falhe. Deve ter exibido o problema.
 Ao final do processo, você deve ter uma instância de cada Model.
 
 Links úteis
-  * [Uso do terminal](https://dart.dev/tutorials/server/cmdline#reading-and-writing-with-stdin-stdout-and-stderr)
+  * [Uso do terminal](https://dart.dev/tutorials/server/cmdline#reading-and-writing-with-stdin-st dout-and-stderr)
 
 ---
 ### Passo 1 

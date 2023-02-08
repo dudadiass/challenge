@@ -18,4 +18,10 @@ class UserModel {
     required this.address,
     required this.monthlyIncome,
   }); //construtor para instancia
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return super.toString();
+  }
 }
