@@ -16,5 +16,6 @@ class CreditCardModel extends CardModel {
 
   @override
   void debit() {}
+
   void credit() {}
 }

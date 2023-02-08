@@ -4,8 +4,8 @@ class AccountModel {
   final String branch; //agencia
   final String bank;
   final String accountNumber;
-  double _balance;
   final UserModel user;
+  double _balance;
   double get balance => _balance;
 
   AccountModel({

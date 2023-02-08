@@ -13,5 +13,5 @@ abstract class CardModel {
     required this.expiryDate,
   });
 
-  void debit() {}
+  void debit();
 }
