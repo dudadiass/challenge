@@ -1,10 +1,9 @@
-void main() {
-  final phone = "(41) 997826946";
-  final exp = RegExp(r"^(\(?[1-9]{2}\)? ?)([0-9]{5})?(-)?([0-9]{4})$");
+String? phoneValidation(String phone) {
+  final phoneRegex = RegExp(r"^(\(?[1-9]{2}\)? ?)([0-9]{5})?(-)?([0-9]{4})$");
 
-  if (exp.hasMatch(phone)) {
-    print("the phone is valid");
+  if (phoneRegex.hasMatch(phone)) {
+    return null;
   } else {
-    print("the phone is invalid");
+    return "the phone is invalid";
   }
 }
