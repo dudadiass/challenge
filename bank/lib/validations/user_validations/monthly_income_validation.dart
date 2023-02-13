@@ -1,10 +1,9 @@
-void main() {
-  final mIncome = "3.000,00";
-  final exp = RegExp(r"^(([\.0-9a-zA-Z]+)(,)([0-9]{2})|(null))$");
+String? monthlyIncomeValidation(String monthlyIncome) {
+  final monthlyIcomeRegx = RegExp(r"^(([\.0-9]+)(,)([0-9]{2})|(null))$");
 
-  if (exp.hasMatch(mIncome)) {
-    print("the monthly income is valid");
+  if (monthlyIcomeRegx.hasMatch(monthlyIncome)) {
+    return null;
   } else {
-    print("the monthly income is invalid");
+    return "the monthly income is invalid";
   }
 }
