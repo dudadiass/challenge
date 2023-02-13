@@ -1,11 +1,11 @@
-void main() {
-  String expirydate = "2/2024";
-  final exp = RegExp(r"^(([1-9]{1,2})(\/)([0-9]{4}))$");
+String? expiryDateValidation(String expiryDate) {
+  final expiryDateRegex =
+      RegExp(r"^(([1-9]{1,1})?([0-9]{1,1})(\/)([0-9]{4}))$");
 
-  if (exp.hasMatch(expirydate) && dateIsValid(expirydate)) {
-    print("the card is valid");
+  if (expiryDateRegex.hasMatch(expiryDate) && dateIsValid(expiryDate)) {
+    return null;
   } else {
-    print("the card is invalid");
+    return "the card is invalid";
   }
 }
 
