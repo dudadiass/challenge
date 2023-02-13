@@ -1,10 +1,9 @@
-void main() {
-  final password = "20224567";
-  final exp = RegExp(r"^([0-9]{8,8})?$");
+String? passwordValidation(String password) {
+  final passwordRegex = RegExp(r"^([0-9]{8,8})?$");
 
-  if (exp.hasMatch(password)) {
-    print("the password is valid");
+  if (passwordRegex.hasMatch(password)) {
+    return null;
   } else {
-    print("the password is invalid");
+    return "the password is invalid";
   }
 }

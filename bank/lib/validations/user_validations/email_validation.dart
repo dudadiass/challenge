@@ -5,6 +5,6 @@ String? emailValidation(String email) {
   if (emailRegex.hasMatch(email)) {
     return null;
   } else {
-    return "the name is invalid";
+    return "the email is invalid";
   }
 }
