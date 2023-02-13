@@ -1,11 +1,10 @@
-void main() {
-  final emails = 'dudadias.1783@gmail.com.br';
-  final exp = RegExp(
-      r"^[a-zA-Z][a-zA-Z0-9._]+(@gmail|@outlook|@hotmail)+(.com)(.br)?$");
+String? emailValidation(String email) {
+  final emailRegex = RegExp(
+      r"^[a-zA-Z][a-zA-Z0-9._]+(@gmail|@outlook|@hotmail)+(\.com)(\.br)?$");
 
-  if (exp.hasMatch(emails)) {
-    print("the email is valid");
+  if (emailRegex.hasMatch(email)) {
+    return null;
   } else {
-    print("the email is invalid");
+    return "the name is invalid";
   }
 }
