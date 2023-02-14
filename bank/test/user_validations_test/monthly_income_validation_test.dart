@@ -22,7 +22,7 @@ void main() {
     expect(montlyIncomeExpected, null);
   });
   test(
-      'should return null if the monthly income has two or more decimal before comma',
+      'should return null if the monthly income has two or more values before comma',
       () {
     final monthlyIncomeExpected = monthlyIncomeValidation('00,00');
     expect(monthlyIncomeExpected, null);
