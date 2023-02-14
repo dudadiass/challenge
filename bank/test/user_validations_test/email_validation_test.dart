@@ -30,7 +30,7 @@ void main() {
     final emailExpected = emailValidation('whatever@gmail.com');
     expect(emailExpected, null);
   });
-  test('should return null if the email contains hotmail', () {
+  test('should return null if the email contains domain hotmail', () {
     final emailExpected = emailValidation('what.ever@hotmail.com');
     expect(emailExpected, null);
   });
@@ -43,11 +43,11 @@ void main() {
     expect(emailExpected, null);
   });
 
-  test('should return null if the email started with letra maiuscula', () {
+  test('should return null if the email started with uppercase letter', () {
     final emailExpected = emailValidation('Whatever@hotmail.com.br');
     expect(emailExpected, null);
   });
-  test('should return null if the email contains username with numbers', () {
+  test('should return null if the email contains username with number(s)', () {
     final emailExpected = emailValidation('w23hatever@hotmail.com.br');
     expect(emailExpected, null);
   });
