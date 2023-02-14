@@ -25,13 +25,18 @@ void main() {
     final expiryDateExpected = expiryDateValidation('1/2031');
     expect(expiryDateExpected, isNotNull);
   });
+  test('should return null if the expiry date month is smaller than now month',
+      () {
+    final expiryDateExpected = expiryDateValidation('1/2023');
+    expect(expiryDateExpected, isNotNull);
+  });
   test('should return String if the expiry date is equals date now', () {
     final expiryDateExpected = expiryDateValidation('2/2023');
     expect(expiryDateExpected, isNotNull);
   });
   test('should return null if the expiry date year is bigger than now year',
       () {
-    final expiryDateExpected = expiryDateValidation('1/2024');
+    final expiryDateExpected = expiryDateValidation('2/2024');
     expect(expiryDateExpected, null);
   });
   test('should return null if the expiry date month is bigger than now month',
