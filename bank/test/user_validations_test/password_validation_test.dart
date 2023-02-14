@@ -10,12 +10,12 @@ void main() {
     final passwordExpected = passwordValidation('123456789');
     expect(passwordExpected, isNotNull);
   });
-  test('should return String if the password contains symbols or letters', () {
+  test('should return String if the password has symbols or letters', () {
     final passwordExpected = passwordValidation('as#%as12');
     expect(passwordExpected, isNotNull);
   });
 
-  test('should return null if the password contains eight numbers', () {
+  test('should return null if the password has eight numbers', () {
     final passwordExpected = passwordValidation('02345678');
     expect(passwordExpected, null);
   });
