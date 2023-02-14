@@ -14,17 +14,21 @@ List<int> dateSplitted(String date) {
 }
 
 bool dateIsValid(String date) {
-  dynamic month = dateSplitted(date);
+  var month = dateSplitted(date);
   int monthProvided = month[0];
+  int actualMonth = DateTime.now().month;
 
-  dynamic year = dateSplitted(date);
+  var year = dateSplitted(date);
   int yearProvided = year[1];
   int actualYear = DateTime.now().year;
   int expiryYear = actualYear + 6;
 
   if (yearProvided > actualYear &&
-      yearProvided <= expiryYear &&
-      monthProvided <= 12) {
+          yearProvided <= expiryYear &&
+          monthProvided <= 12 ||
+      yearProvided == actualYear &&
+          monthProvided != actualMonth &&
+          monthProvided <= 12) {
     return true;
   } else {
     return false;
