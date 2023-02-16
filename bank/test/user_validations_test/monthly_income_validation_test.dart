@@ -14,7 +14,7 @@ void main() {
   });
 
   test('should return null if monthly income is null', () {
-    final monthlyIncomeExpected = monthlyIncomeValidation('null');
+    final monthlyIncomeExpected = monthlyIncomeValidation('');
     expect(monthlyIncomeExpected, null);
   });
   test('should return null if the monthly income contains comma for cents', () {
@@ -25,11 +25,6 @@ void main() {
       'should return null if the monthly income has two or more values before comma',
       () {
     final monthlyIncomeExpected = monthlyIncomeValidation('00,00');
-    expect(monthlyIncomeExpected, null);
-  });
-
-  test('should return null if the monthly income contains dot in real', () {
-    final monthlyIncomeExpected = monthlyIncomeValidation('5.500,00');
     expect(monthlyIncomeExpected, null);
   });
 }

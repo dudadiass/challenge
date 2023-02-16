@@ -4,6 +4,6 @@ String? passwordValidation(String password) {
   if (passwordRegex.hasMatch(password)) {
     return null;
   } else {
-    return "the password is invalid";
+    return "the password has an invalid amount of digits";
   }
 }

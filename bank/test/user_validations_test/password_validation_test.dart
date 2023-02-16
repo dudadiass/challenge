@@ -19,4 +19,8 @@ void main() {
     final passwordExpected = passwordValidation('02345678');
     expect(passwordExpected, null);
   });
+  test('s', () {
+    final passwordExpected = passwordValidation('');
+    expect(passwordExpected, null);
+  });
 }

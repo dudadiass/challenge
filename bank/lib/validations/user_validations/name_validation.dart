@@ -4,6 +4,6 @@ String? nameValidation(String name) {
   if (nameRegex.hasMatch(name)) {
     return null;
   } else {
-    return "the name is invalid";
+    return "the name filled in is incorrectly";
   }
 }

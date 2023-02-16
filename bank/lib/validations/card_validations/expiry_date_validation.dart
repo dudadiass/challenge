@@ -5,7 +5,7 @@ String? expiryDateValidation(String expiryDate) {
   if (expiryDateRegex.hasMatch(expiryDate) && dateIsValid(expiryDate)) {
     return null;
   } else {
-    return "the card is invalid";
+    return "the card has expired";
   }
 }
 

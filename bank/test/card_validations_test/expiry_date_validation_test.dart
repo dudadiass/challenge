@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('should return String if the expiry date has not slash', () {
-    final expiryDateExpected = expiryDateValidation('12022');
+    final expiryDateExpected = expiryDateValidation('122022');
     expect(expiryDateExpected, isNotNull);
   });
   test('should return String if the expiry date started with zero', () {
