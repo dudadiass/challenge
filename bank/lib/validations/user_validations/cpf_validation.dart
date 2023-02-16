@@ -5,21 +5,21 @@ String? cpfValidation(String cpf) {
   if (cpfRegex.hasMatch(cpf) && cpfIsValid(cpf)) {
     return null;
   } else {
-    return "the cpf is invalid";
+    return "the cpf you filled in is invalid";
   }
 }
 
 List<int> cpfSplitted(String cpf) {
-  String formattedCpf = (cpf.replaceAll('.', '')).replaceAll('-', '');
+  String formattedCpf = cpf.replaceAll('.', '').replaceAll('-', '');
   return formattedCpf.split('').map((e) => int.parse(e)).toList();
 }
 
 bool cpfIsValid(String cpf) {
-  var cpfDigits = cpfSplitted(cpf);
-  var cpfTenth = cpfDigits[9];
-  var cpfEleventh = cpfDigits[10];
-  int verifyTenthDigit = cpfVerify(cpf, 9);
-  int verifyEleventhDigit = cpfVerify(cpf, 10);
+  final cpfDigits = cpfSplitted(cpf);
+  final cpfTenth = cpfDigits[9];
+  final cpfEleventh = cpfDigits[10];
+  final verifyTenthDigit = cpfVerify(cpf, 9);
+  final verifyEleventhDigit = cpfVerify(cpf, 10);
 
   if (cpfTenth == verifyTenthDigit && cpfEleventh == verifyEleventhDigit) {
     return true;
@@ -32,9 +32,9 @@ int cpfVerify(String cpf, int index) {
   int sumMult = 0;
   for (var i = 0; i <= (index - 1); i++) {
     final commonDigits = cpfSplitted(cpf).elementAt(i);
-    final verify = (index + 1);
-    final mult = commonDigits * (verify - i);
-    sumMult += mult;
+    final valueMult = (index + 1);
+    final totalMult = commonDigits * (valueMult - i);
+    sumMult += totalMult;
   }
   final result = (sumMult * 10) % 11;
   if (result == 10) {
