@@ -1,9 +1,12 @@
 import 'dart:io';
 
-import 'package:bank/inputs/account/current_accout_input.dart';
-import 'package:bank/inputs/account/deposit_account_input.dart';
+import '../../models/user/user_model.dart';
+import 'current_accout_input.dart';
+import 'deposit_account_input.dart';
 
-void wichAccount() {
+int tip = 0;
+
+void whichAccount({required UserModel user}) {
   int tip = 0;
   do {
     print('Escolha o tipo de conta:');
@@ -12,8 +15,8 @@ void wichAccount() {
     tip = int.parse(stdin.readLineSync()!);
   } while (tip != 1 && tip != 2);
   if (tip == 1) {
-    currentAccount();
+    currentAccount(user: user);
   } else {
-    depositAccount();
+    depositAccount(user: user);
   }
 }

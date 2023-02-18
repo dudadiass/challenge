@@ -2,9 +2,10 @@ import '../cards/debit_card_model.dart';
 import 'account_model.dart';
 
 class DepositAccountModel extends AccountModel {
-  final DebitCardModel debitCardModel;
+  late DebitCardModel debitCardModel;
   DepositAccountModel(
-    this.debitCardModel, {
+      //this.debitCardModel, {
+      {
     required super.branch,
     required super.bank,
     required super.accountNumber,
