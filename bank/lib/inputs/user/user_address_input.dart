@@ -4,26 +4,26 @@ import 'dart:io';
 import '../../models/user/address_user_model.dart';
 
 AddressUserModel userAddressModelCreation() {
-  print("\nInforme os dados do seu endereço");
+  print("Dados residenciais");
   print('Informe o CEP:');
   String zipCode = stdin.readLineSync()!;
 
-  print('Informe sua rua:');
+  print('\nInforme sua rua:');
   String street = stdin.readLineSync()!;
 
-  print('Informe o bairro:');
+  print('\nInforme o bairro:');
   String district = stdin.readLineSync()!;
 
-  print('Informe a cidade:');
+  print('\nInforme a cidade:');
   String city = stdin.readLineSync()!;
 
-  print('Informe o estado:');
+  print('\nInforme o estado:');
   String state = stdin.readLineSync()!;
 
-  print('Informe o numero:');
+  print('\nInforme o numero:');
   String numberAddress = stdin.readLineSync()!;
 
-  print('Informe o complemento (opcional):');
+  print('\nInforme o complemento (opcional):');
   String complementAddress = stdin.readLineSync()!;
 
   AddressUserModel userAddress = AddressUserModel(

@@ -15,8 +15,10 @@ UserModel userCreate() {
   String? nameIsValid;
   String name;
 
+  print('\nCadastre um usuário');
+
   do {
-    print('Informe seu nome:');
+    print('\nInforme seu nome:');
     name = stdin.readLineSync()!;
     nameIsValid = nameValidation(name);
     if (nameIsValid != null) {
@@ -28,7 +30,7 @@ UserModel userCreate() {
   String email;
 
   do {
-    print('Informe seu e-mail:');
+    print('\nInforme seu e-mail:');
     email = stdin.readLineSync()!;
     emailIsValid = emailValidation(email);
     if (emailIsValid != null) {
@@ -40,7 +42,7 @@ UserModel userCreate() {
   String phone;
 
   do {
-    print('Informe seu telefone:');
+    print('\nInforme seu telefone:');
     phone = stdin.readLineSync()!;
     phoneIsValid = phoneValidation(phone);
     if (phoneIsValid != null) {
@@ -52,7 +54,7 @@ UserModel userCreate() {
   String cpf;
 
   do {
-    print('Informe seu CPF:');
+    print('\nInforme seu CPF:');
     cpf = stdin.readLineSync()!;
     cpfIsValid = cpfValidation(cpf);
     if (cpfIsValid != null) {
@@ -64,7 +66,7 @@ UserModel userCreate() {
   String password;
 
   do {
-    print('Crie sua senha de 8 dígitos:');
+    print('\nCrie sua senha de 8 dígitos:');
     password = stdin.readLineSync()!;
     passwordIsValid = passwordValidation(password);
     if (passwordIsValid != null) {
@@ -76,7 +78,7 @@ UserModel userCreate() {
   String monthlyIncome;
 
   do {
-    print('Informe sua rensa mensal (opcional):');
+    print('\nInforme sua rensa mensal (opcional):');
     monthlyIncome = stdin.readLineSync()!;
     monthlyIncomeIsValid = monthlyIncomeValidation(monthlyIncome);
     if (monthlyIncomeIsValid != null) {
@@ -94,6 +96,8 @@ UserModel userCreate() {
       phone: phone,
       email: email,
       password: password);
+
+  print('Usuário cadastrado com sucesso!\n');
 
   return user;
 }
