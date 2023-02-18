@@ -21,7 +21,6 @@ class UserModel {
 
   @override
   String toString() {
-    // TODO: implement toString
-    return super.toString();
+    return 'Nome: $name\n Email: $email\n Senha: $password\n Telefone: $phone\n CPF: $cpf\n Endereço: $address\n Renda Mensal: $monthlyIncome\n';
   }
 }

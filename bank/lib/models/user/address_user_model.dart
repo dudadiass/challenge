@@ -16,4 +16,8 @@ class AddressUserModel {
     required this.zipCode,
     required this.complementAddress,
   });
+  @override
+  String toString() {
+    return 'Rua: $street\n Número: $numberAddress\n Bairro: $district\n Complemento: $complementAddress\n Cidade: $city\n Estado: $state\n CEP: $zipCode';
+  }
 }
