@@ -16,9 +16,23 @@ class CreditCardModel extends CardModel {
   });
 
   @override
-  void debit() {}
+  double? debit(double value, double monthlyIncome) {
+    if (value > 0 && value <= monthlyIncome) {
+      monthlyIncome -= value;
+      return monthlyIncome;
+    } else {
+      return null;
+    }
+  }
 
-  void credit() {}
+  double? credit(double value) {
+    if (value <= limit) {
+      amountSpend += value;
+      return amountSpend;
+    } else {
+      return null;
+    }
+  }
 
   @override
   String toString() {

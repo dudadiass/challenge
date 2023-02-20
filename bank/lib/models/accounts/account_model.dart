@@ -1,5 +1,3 @@
-import 'package:bank/models/cards/card_model.dart';
-
 import '../user/user_model.dart';
 
 abstract class AccountModel {
@@ -7,22 +5,33 @@ abstract class AccountModel {
   final String bank;
   final String accountNumber;
   final UserModel user;
-  final CardModel card;
+
   double balance;
-  AccountModel(
-      {required this.branch,
-      required this.bank,
-      required this.accountNumber,
-      required double balance,
-      required this.user,
-      required this.card})
-      : balance = 0;
+  AccountModel({
+    required this.branch,
+    required this.bank,
+    required this.accountNumber,
+    required double balance,
+    required this.user,
+  }) : balance = 0;
 
-  void transfer() {} //tranferencia
+  double? withdraw(double value, double balance) {
+    if (value >= balance) {
+      balance = balance - value;
+      return balance;
+    } else {
+      return null;
+    }
+  }
 
-  void withdraw() {} //saque
-
-  void deposit() {} //deposito
+  double? deposit(double value, double balance) {
+    if (value > 0) {
+      balance = balance + value;
+      return balance;
+    } else {
+      return null;
+    }
+  }
 
   @override
   String toString() {

@@ -11,7 +11,14 @@ class DebitCardModel extends CardModel {
   });
 
   @override
-  void debit() {}
+  double? debit(double value, double monthlyIncome) {
+    if (value > 0 && value <= monthlyIncome) {
+      monthlyIncome -= value;
+      return monthlyIncome;
+    } else {
+      return null;
+    }
+  }
 
   @override
   String toString() {

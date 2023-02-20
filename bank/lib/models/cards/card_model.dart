@@ -17,7 +17,7 @@ abstract class CardModel {
     required this.user,
   });
 
-  void debit();
+  void debit(double value, double monthlyIncome);
 
   @override
   String toString() {

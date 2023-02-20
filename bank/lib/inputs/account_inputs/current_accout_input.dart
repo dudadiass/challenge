@@ -1,6 +1,4 @@
 import 'package:bank/inputs/card_inputs/credit_card_input.dart';
-import 'package:bank/inputs/card_inputs/debit_card_input.dart';
-import 'package:bank/models/cards/card_model.dart';
 import 'package:bank/models/cards/credit_card_model.dart';
 import 'package:bank/repository/random.dart';
 
@@ -25,7 +23,7 @@ CurrentAccountModel currentAccount(UserModel user) {
     accountNumber: accountNumber,
     balance: 0,
     user: user,
-    card: card,
+    creditCardModel: card,
   );
   return currentAccountModel;
 }
