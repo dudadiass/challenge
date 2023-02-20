@@ -6,7 +6,7 @@ class UserModel {
   final String password;
   final String phone;
   final String cpf;
-  final String? monthlyIncome;
+  final double? monthlyIncome;
   final AddressUserModel address;
 
   UserModel({

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bank/models/user/address_user_model.dart';
+import 'package:bank/inputs/messages_inputs/succes_messages.dart';
 import 'package:bank/validations/user_validations/cpf_validation.dart';
 import 'package:bank/validations/user_validations/email_validation.dart';
 import 'package:bank/validations/user_validations/monthly_income_validation.dart';
@@ -74,17 +75,10 @@ UserModel userCreate() {
     }
   } while (passwordIsValid != null);
 
-  String? monthlyIncomeIsValid;
-  String monthlyIncome;
+  double monthlyIncome;
 
-  do {
-    print('\nInforme sua rensa mensal (opcional):');
-    monthlyIncome = stdin.readLineSync()!;
-    monthlyIncomeIsValid = monthlyIncomeValidation(monthlyIncome);
-    if (monthlyIncomeIsValid != null) {
-      stderr.writeln(monthlyIncomeIsValid);
-    }
-  } while (monthlyIncomeIsValid != null);
+  print('\nInforme sua rensa mensal (opcional):');
+  monthlyIncome = double.parse(stdin.readLineSync()!);
 
   AddressUserModel addressUserModel = userAddressModelCreation();
 
@@ -97,7 +91,6 @@ UserModel userCreate() {
       email: email,
       password: password);
 
-  print('Usuário cadastrado com sucesso!\n');
-
+  InputMessage.createUser();
   return user;
 }
