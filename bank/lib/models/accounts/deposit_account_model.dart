@@ -1,5 +1,3 @@
-import 'package:bank/models/cards/debit_card_model.dart';
-
 import 'account_model.dart';
 
 class DepositAccountModel extends AccountModel {

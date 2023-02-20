@@ -20,5 +20,5 @@ void requestCreditCard(UserModel user) {
     } else if (tipCard != 2) {
       Message.invalidOption();
     }
-  } while (tipCard != 2);
+  } while (tipCard != 2 && tipCard != 1);
 }

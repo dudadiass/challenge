@@ -3,8 +3,8 @@ import 'dart:io';
 import '../../models/user/address_user_model.dart';
 
 AddressUserModel userAddressModelCreation() {
-  print("Dados residenciais");
-  print('Informe o CEP:');
+  print("\nDados residenciais");
+  print('\nInforme o CEP:');
   String zipCode = stdin.readLineSync()!;
 
   print('\nInforme sua rua:');

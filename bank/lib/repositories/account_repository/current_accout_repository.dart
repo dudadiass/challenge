@@ -1,4 +1,3 @@
-import 'package:bank/models/cards/card_model.dart';
 import 'package:bank/models/cards/debit_card_model.dart';
 import 'package:bank/repositories/card_repository/credit_card_repository.dart';
 import 'package:bank/models/cards/credit_card_model.dart';

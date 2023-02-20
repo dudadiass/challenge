@@ -1,4 +1,3 @@
-import 'package:bank/models/cards/card_model.dart';
 import 'package:bank/models/cards/debit_card_model.dart';
 import '../../models/accounts/deposit_account_model.dart';
 import '../../models/user/user_model.dart';
