@@ -32,14 +32,4 @@ class CurrentAccountModel extends AccountModel {
 
     return 0;
   }
-
-  @override
-  double? withdraw(double value, double balance) {
-    if (value >= balance) {
-      balance = balance - value;
-      return balance;
-    } else {
-      return null;
-    }
-  } //emprestimo
 }

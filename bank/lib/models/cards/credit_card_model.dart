@@ -15,16 +15,6 @@ class CreditCardModel extends CardModel {
     required super.user,
   });
 
-  @override
-  double? debit(double value, double monthlyIncome) {
-    if (value > 0 && value <= monthlyIncome) {
-      monthlyIncome -= value;
-      return monthlyIncome;
-    } else {
-      return null;
-    }
-  }
-
   double? credit(double value) {
     if (value <= limit) {
       amountSpend += value;

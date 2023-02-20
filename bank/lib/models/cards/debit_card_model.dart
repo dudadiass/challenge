@@ -11,16 +11,6 @@ class DebitCardModel extends CardModel {
   });
 
   @override
-  double? debit(double value, double monthlyIncome) {
-    if (value > 0 && value <= monthlyIncome) {
-      monthlyIncome -= value;
-      return monthlyIncome;
-    } else {
-      return null;
-    }
-  }
-
-  @override
   String toString() {
     return '\nNúmero do cartão: $numberCard, \nLogo: $networkLogo, \nCvv: $ccv, \nNome do cartão: $nameCard, \nData de expiração: $expiryDate, \nNome do usuário: $user.name';
   }
