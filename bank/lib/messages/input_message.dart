@@ -1,14 +1,14 @@
-class InputMessage {
+class Message {
   static void createDebitCard() {
-    print('Cartão de débito criado com sucesso');
+    print('Cartão de débito criado com sucesso!');
   }
 
   static void createAccount() {
-    print('Conta criada com sucesso');
+    print('Conta criada com sucesso!');
   }
 
   static void createUser() {
-    print('Usuário criado com sucesso');
+    print('Usuário criado com sucesso!');
   }
 
   static void failCreateCrediCard() {
@@ -20,7 +20,11 @@ class InputMessage {
     print('Solicitação aprovada: Seu cartão de crédito foi criado');
   }
 
-  static void optionIncorreta() {
+  static void invalidOption() {
     print('Opção Incorreta');
+  }
+
+  static void welcome() {
+    print("Bem-vindo(a) ao Banco do Brasel!");
   }
 }

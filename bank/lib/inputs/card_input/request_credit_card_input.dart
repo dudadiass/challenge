@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:bank/models/user/user_model.dart';
-import 'package:bank/inputs/messages_inputs/succes_messages.dart';
+import 'package:bank/messages/input_message.dart';
 
-import 'credit_card_input.dart';
+import '../../repositories/card_repository/credit_card_repository.dart';
 
 void requestCreditCard(UserModel user) {
   int tipCard = 0;
@@ -13,12 +13,12 @@ void requestCreditCard(UserModel user) {
     print('2) Não');
     tipCard = int.parse(stdin.readLineSync()!);
     if (tipCard == 1 && user.monthlyIncome != '') {
-      InputMessage.sucessCreateCreditCard();
+      Message.sucessCreateCreditCard();
       creditCard(user);
     } else if (tipCard == 1 && user.monthlyIncome == '') {
-      InputMessage.failCreateCrediCard();
+      Message.failCreateCrediCard();
     } else if (tipCard != 2) {
-      InputMessage.optionIncorreta();
+      Message.invalidOption();
     }
   } while (tipCard != 2);
 }

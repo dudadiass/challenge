@@ -3,14 +3,15 @@ import 'package:bank/models/cards/credit_card_model.dart';
 import 'account_model.dart';
 
 class CurrentAccountModel extends AccountModel {
-  CreditCardModel creditCardModel;
+  CreditCardModel creditCard;
   CurrentAccountModel({
-    required this.creditCardModel,
+    required this.creditCard,
     required super.branch,
     required super.bank,
     required super.accountNumber,
     required super.balance,
     required super.user,
+    required super.debitCard,
   });
 
   double? takeLoan(double value, double monthlyIncome) {
@@ -22,7 +23,7 @@ class CurrentAccountModel extends AccountModel {
 
       if (value >= twentyPerCent && value <= seventyPerCent) {
         balance += value;
-        creditCardModel.amountSpend += value;
+        creditCard.amountSpend += value;
         return null;
       } else {
         return null;

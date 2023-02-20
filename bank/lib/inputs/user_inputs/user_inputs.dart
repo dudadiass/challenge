@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:bank/models/user/address_user_model.dart';
-import 'package:bank/inputs/messages_inputs/succes_messages.dart';
+import 'package:bank/messages/input_message.dart';
 import 'package:bank/validations/user_validations/cpf_validation.dart';
 import 'package:bank/validations/user_validations/email_validation.dart';
 import 'package:bank/validations/user_validations/monthly_income_validation.dart';
@@ -98,6 +98,6 @@ UserModel userCreate() {
       email: email,
       password: password);
 
-  InputMessage.createUser();
+  Message.createUser();
   return user;
 }
