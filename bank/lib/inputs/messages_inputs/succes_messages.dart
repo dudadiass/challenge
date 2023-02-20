@@ -19,4 +19,8 @@ class InputMessage {
   static void sucessCreateCreditCard() {
     print('Solicitação aprovada: Seu cartão de crédito foi criado');
   }
+
+  static void optionIncorreta() {
+    print('Opção Incorreta');
+  }
 }

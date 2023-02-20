@@ -75,10 +75,17 @@ UserModel userCreate() {
     }
   } while (passwordIsValid != null);
 
-  double monthlyIncome;
+  String monthlyIncome;
+  String? monthlyIncomeIsValid;
 
-  print('\nInforme sua rensa mensal (opcional):');
-  monthlyIncome = double.parse(stdin.readLineSync()!);
+  do {
+    print('\nInforme sua rensa mensal (opcional):');
+    monthlyIncome = stdin.readLineSync()!;
+    monthlyIncomeIsValid = monthlyIncomeValidation(monthlyIncome);
+    if (monthlyIncomeIsValid != null) {
+      stderr.writeln(monthlyIncomeIsValid);
+    }
+  } while (monthlyIncomeIsValid != null);
 
   AddressUserModel addressUserModel = userAddressModelCreation();
 

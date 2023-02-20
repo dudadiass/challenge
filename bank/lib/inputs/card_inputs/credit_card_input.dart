@@ -3,19 +3,27 @@ import 'package:bank/repository/random.dart';
 
 import '../../models/user/user_model.dart';
 
-double _setLimitByMontlyIncome(UserModel user) {
-  double mon = user.monthlyIncome!;
-  if (mon < 1000) {
-    return mon * 0.1;
-  } else if (mon >= 1000 && mon < 2500) {
-    return mon * 0.25;
-  } else if (mon >= 2500 && mon < 5000) {
-    return mon * 0.4;
-  } else if (mon >= 5000 && mon < 10000) {
-    return mon * 0.6;
-  } else {
-    return mon * 0.75;
+double _limit(UserModel user) {
+  String? i = user.monthlyIncome;
+  if (i != '') {
+    double monthlyIncome = double.parse(i!); //STRING to DOUBLE
+
+    if (monthlyIncome < 1000) {
+      return monthlyIncome * 0.1;
+    } else if (monthlyIncome >= 1000 && monthlyIncome < 2500) {
+      return monthlyIncome * 0.25;
+    } else if (monthlyIncome >= 2500 && monthlyIncome < 5000) {
+      return monthlyIncome * 0.4;
+    } else if (monthlyIncome >= 5000 && monthlyIncome < 10000) {
+      return monthlyIncome * 0.6;
+    } else if (monthlyIncome == 0) {
+      return 0;
+    } else {
+      return monthlyIncome * 0.75;
+    }
   }
+
+  return 0;
 }
 
 CreditCardModel creditCard(UserModel user) {
@@ -35,7 +43,7 @@ CreditCardModel creditCard(UserModel user) {
     amountSpend: 0,
     ccv: ccv,
     expiryDate: expiryDate,
-    limit: _setLimitByMontlyIncome(user),
+    limit: _limit(user),
     nameCard: nameCard,
     networkLogo: networkLogo,
     numberCard: numberCard,

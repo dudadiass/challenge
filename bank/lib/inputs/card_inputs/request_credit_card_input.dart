@@ -7,15 +7,18 @@ import 'credit_card_input.dart';
 
 void requestCreditCard(UserModel user) {
   int tipCard = 0;
-  print('Deseja solicitar um cartão de crédito?');
-  print('1) Sim');
-  print('2) Não');
-  tipCard = int.parse(stdin.readLineSync()!);
-  if (tipCard == 1 && user.monthlyIncome != 0) {
-    InputMessage.sucessCreateCreditCard();
-    creditCard(user);
-    print(creditCard(user).limit);
-  } else {
-    InputMessage.failCreateCrediCard();
-  }
+  do {
+    print('Deseja solicitar um cartão de crédito?');
+    print('1) Sim');
+    print('2) Não');
+    tipCard = int.parse(stdin.readLineSync()!);
+    if (tipCard == 1 && user.monthlyIncome != '') {
+      InputMessage.sucessCreateCreditCard();
+      creditCard(user);
+    } else if (tipCard == 1 && user.monthlyIncome == '') {
+      InputMessage.failCreateCrediCard();
+    } else if (tipCard != 2) {
+      InputMessage.optionIncorreta();
+    }
+  } while (tipCard != 2);
 }
