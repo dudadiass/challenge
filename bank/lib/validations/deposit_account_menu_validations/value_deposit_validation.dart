@@ -1,4 +1,4 @@
-String? valueBalanceValidation(double value) {
+String? valueDepositValidation(double value) {
   if (value > 5000) {
     return 'O valor não pode exceder 5000. Operação cancelada';
   } else if (value <= 0) {

@@ -35,4 +35,8 @@ class Message {
   static void sucessDeposit() {
     print('\nDepósito realizado com sucesso\n');
   }
+
+  static void sucessWithdraw() {
+    print('\nSaque realizado com sucesso\n');
+  }
 }

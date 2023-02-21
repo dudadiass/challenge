@@ -21,5 +21,9 @@ void menuDepositAccount(UserModel user, DepositAccountModel depositAccount) {
     case 1:
       inputDeposit(user, depositAccount);
       break;
+
+    case 2:
+      inputWithdraw(user, depositAccount);
+      break;
   }
 }
