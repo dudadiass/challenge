@@ -19,7 +19,8 @@ abstract class AccountModel {
     required this.debitCard,
   }) : balance = 0;
 
-  double? withdraw(double value, double balance) {
+  double? withdraw(double value) {
+    //sacar
     if (value >= balance) {
       balance = balance - value;
       return balance;
@@ -28,7 +29,8 @@ abstract class AccountModel {
     }
   }
 
-  double? deposit(double value, double balance) {
+  double? deposit(double value) {
+    //depositar
     if (value > 0) {
       balance = balance + value;
       return balance;

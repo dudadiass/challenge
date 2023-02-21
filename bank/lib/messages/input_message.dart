@@ -1,30 +1,42 @@
 class Message {
   static void createDebitCard() {
-    print('Cartão de débito criado com sucesso!');
+    print('\nCartão de débito criado com sucesso!');
   }
 
   static void createAccount() {
-    print('Conta criada com sucesso!');
+    print('\nConta criada com sucesso!');
   }
 
   static void createUser() {
-    print('Usuário criado com sucesso!');
+    print('\nUsuário criado com sucesso!');
   }
 
   static void failCreateCrediCard() {
     print(
-        'Solicitação negada: Infelizmente não foi possível criar seu cartão de crédito');
+        '\nSolicitação negada: Infelizmente não foi possível criar seu cartão de crédito\n');
   }
 
   static void sucessCreateCreditCard() {
-    print('Solicitação aprovada: Seu cartão de crédito foi criado');
+    print('\nSolicitação aprovada: Seu cartão de crédito foi criado\n');
   }
 
   static void invalidOption() {
-    print('Opção Incorreta');
+    print('\nOpção Incorreta\n');
   }
 
   static void welcome() {
     print("Bem-vindo(a) ao Banco do Brasel!");
+  }
+
+  static void invalidPassword() {
+    print("\nSenha inválida. Operação cancelada\n");
+  }
+
+  static void depositValueBigger() {
+    print('\nO valor não pode ser maior de 5000. Operação cancelada\n');
+  }
+
+  static void sucessDeposit() {
+    print('\ndepósito realizado com sucesso\n');
   }
 }
