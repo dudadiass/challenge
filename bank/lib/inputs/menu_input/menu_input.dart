@@ -6,16 +6,20 @@ import 'package:bank/messages/input_message.dart';
 import 'package:bank/models/accounts/account_model.dart';
 import 'package:bank/models/user/user_model.dart';
 
-void inputDeposit(UserModel user, AccountModel account) {
+inputDeposit(UserModel user, AccountModel account) {
   print("Digite o valor que deseja depositar:");
   double value = double.parse(stdin.readLineSync()!);
   if (value > 5000) {
     Message.depositValueBigger();
     backToMenu(user, account);
+  } else if (value <= 0) {
+    Message.depositValueLess();
+    backToMenu(user, account);
   } else {
     if (passwordValidation(user)) {
       account.deposit(value);
       Message.sucessDeposit();
+      print('Valor na conta: ' '${account.balance}');
       menuDepositAccount(user, account);
     } else {
       Message.invalidPassword();

@@ -33,7 +33,11 @@ class Message {
   }
 
   static void depositValueBigger() {
-    print('\nO valor não pode ser maior de 5000. Operação cancelada\n');
+    print('\nO valor não pode exceder 5000. Operação cancelada\n');
+  }
+
+  static void depositValueLess() {
+    print('\nO valor não pode ser nulo ou negativo. Operação cancelada\n');
   }
 
   static void sucessDeposit() {
