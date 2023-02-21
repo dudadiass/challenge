@@ -14,7 +14,8 @@ inputDeposit(
 ) {
   print("\nDigite o valor que deseja depositar:");
   double value = double.parse(stdin.readLineSync()!);
-  if (valueBalanceValidation(value) == null) {
+  final valueIsValid = valueBalanceValidation(value);
+  if (valueIsValid == null) {
     if (passwordValidation(user)) {
       depositAccount.deposit(value);
       Message.sucessDeposit();
@@ -24,8 +25,10 @@ inputDeposit(
       Message.invalidPassword();
       backToMenu(user, depositAccount);
     }
+  } else {
+    stderr.writeln(valueIsValid);
+    backToMenu(user, depositAccount);
   }
-  backToMenu(user, depositAccount);
 }
 
 void backToMenu(UserModel user, DepositAccountModel depositAccount) {

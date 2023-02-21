@@ -32,14 +32,6 @@ class Message {
     print("\nSenha inválida. Operação cancelada\n");
   }
 
-  static void depositValueBigger() {
-    print('\nO valor não pode exceder 5000. Operação cancelada\n');
-  }
-
-  static void depositValueLess() {
-    print('\nO valor não pode ser nulo ou negativo. Operação cancelada\n');
-  }
-
   static void sucessDeposit() {
     print('\nDepósito realizado com sucesso\n');
   }

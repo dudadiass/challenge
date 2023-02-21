@@ -1,11 +1,8 @@
-import '../../../messages/input_message.dart';
-
-double? valueBalanceValidation(double value) {
+String? valueBalanceValidation(double value) {
   if (value > 5000) {
-    Message.depositValueBigger();
-    return 0;
+    return 'O valor não pode exceder 5000. Operação cancelada';
   } else if (value <= 0) {
-    Message.depositValueLess();
+    return 'O valor não pode ser nulo ou negativo. Operação cancelada';
   }
   return null;
 }
