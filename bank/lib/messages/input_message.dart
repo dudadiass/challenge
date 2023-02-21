@@ -39,4 +39,8 @@ class Message {
   static void sucessWithdraw() {
     print('\nSaque realizado com sucesso\n');
   }
+
+  static void operationFailed() {
+    print('\nOperação cancelada');
+  }
 }

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bank/models/accounts/account_model.dart';
 import 'package:bank/models/accounts/current_account_model.dart';
 import 'package:bank/models/accounts/deposit_account_model.dart';
 import 'package:bank/repositories/card_repository/debit_card_repository.dart';

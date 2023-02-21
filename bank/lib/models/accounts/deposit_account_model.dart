@@ -12,14 +12,13 @@ class DepositAccountModel extends AccountModel {
 
   void render(int value) {
     final days = value;
-    final halfDays = days / 2;
-    final doubleDays = days * 2;
-    final totalDayRender = balance * 0.02;
-    final totalInDays = totalDayRender * days;
-    final totalInHalfDays = totalDayRender * halfDays;
-    final totalInDoubleDays = totalDayRender * doubleDays;
-    print('Em $days dias seu dinheiro renderá: $totalInDays');
-    print('Em $halfDays dias seu dinheiro renderá: $totalInHalfDays');
-    print('Em $doubleDays dias seu dinheiro renderá: $totalInDoubleDays');
+    final daysHalf = value / 2;
+    final daysDouble = value * 2;
+    final timeHalf = (value * 0.01) * balance;
+    final time = (value * 0.02) * balance;
+    final timeDouble = (value * 0.04) * balance;
+    print('Em $days dias seu dinheiro pode render: $time');
+    print('Em $daysHalf dias seu dinheiro pode render: $timeHalf');
+    print('Em $daysDouble dias seu dinheiro pode render: $timeDouble');
   }
 }

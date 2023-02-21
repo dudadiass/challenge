@@ -6,15 +6,15 @@ import 'package:bank/models/user/user_model.dart';
 
 void menuDepositAccount(UserModel user, DepositAccountModel depositAccount) {
   int op = 0;
-  print('----------------------------------');
-  print("|   1) Depósito                  |");
-  print("|   2) Saque                     |");
-  print("|   3) Rendimento                |");
-  print("|   4) Pagar com débito          |");
-  print("|   5) Ver detalhes da conta     |");
-  print("|   6) Ver detalhes do cartão    |");
-  print("|   0) Sair                      |");
-  print('----------------------------------');
+  print('------------------------------------');
+  print("|   1) Depósito                    |");
+  print("|   2) Saque                       |");
+  print("|   3) Consultar Rendimento        |");
+  print("|   4) Pagar com cartão de débito  |");
+  print("|   5) Ver detalhes da conta       |");
+  print("|   6) Ver detalhes do cartão      |");
+  print("|   0) Sair                        |");
+  print('------------------------------------');
   op = int.parse(stdin.readLineSync()!);
 
   switch (op) {
@@ -24,6 +24,10 @@ void menuDepositAccount(UserModel user, DepositAccountModel depositAccount) {
 
     case 2:
       inputWithdraw(user, depositAccount);
+      break;
+
+    case 3:
+      inputRender(user, depositAccount);
       break;
   }
 }
