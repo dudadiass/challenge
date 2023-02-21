@@ -1,6 +1,6 @@
 class Message {
   static void createDebitCard() {
-    print('\nCartão de débito criado com sucesso!');
+    print('\nCartão de débito criado com sucesso!\n');
   }
 
   static void createAccount() {
@@ -8,7 +8,7 @@ class Message {
   }
 
   static void createUser() {
-    print('\nUsuário criado com sucesso!');
+    print('\nUsuário criado com sucesso!\n');
   }
 
   static void failCreateCrediCard() {
@@ -41,6 +41,6 @@ class Message {
   }
 
   static void sucessDeposit() {
-    print('\ndepósito realizado com sucesso\n');
+    print('\nDepósito realizado com sucesso\n');
   }
 }

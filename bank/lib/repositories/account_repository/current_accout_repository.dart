@@ -7,7 +7,7 @@ import 'package:bank/repositories/random.dart';
 import '../../models/accounts/current_account_model.dart';
 import '../../models/user/user_model.dart';
 
-CurrentAccountModel currentAccount(UserModel user) {
+CurrentAccountModel currentAccountCreate(UserModel user) {
   DebitCardModel cardDebit = debitCard(user);
   late CreditCardModel cardCredit = creditCard(user);
 
@@ -20,7 +20,7 @@ CurrentAccountModel currentAccount(UserModel user) {
 
   bank = "123";
 
-  CurrentAccountModel currentAccountModel = CurrentAccountModel(
+  CurrentAccountModel currentAccount = CurrentAccountModel(
     branch: branch,
     bank: bank,
     accountNumber: accountNumber,
@@ -29,5 +29,5 @@ CurrentAccountModel currentAccount(UserModel user) {
     creditCard: cardCredit,
     debitCard: cardDebit,
   );
-  return currentAccountModel;
+  return currentAccount;
 }

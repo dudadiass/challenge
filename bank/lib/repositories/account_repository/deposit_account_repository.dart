@@ -4,7 +4,7 @@ import '../../models/user/user_model.dart';
 import '../random.dart';
 import '../card_repository/debit_card_repository.dart';
 
-DepositAccountModel depositAccount(UserModel user) {
+DepositAccountModel depositAccountCreate(UserModel user) {
   DebitCardModel cardDebit = debitCard(user);
 
   String accountNumber;
@@ -16,7 +16,7 @@ DepositAccountModel depositAccount(UserModel user) {
 
   bank = "123";
 
-  DepositAccountModel depositAccountModel = DepositAccountModel(
+  DepositAccountModel depositAccount = DepositAccountModel(
     branch: branch,
     bank: bank,
     accountNumber: accountNumber,
@@ -24,5 +24,5 @@ DepositAccountModel depositAccount(UserModel user) {
     user: user,
     debitCard: cardDebit,
   );
-  return depositAccountModel;
+  return depositAccount;
 }

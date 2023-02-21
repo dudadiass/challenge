@@ -21,22 +21,14 @@ abstract class AccountModel {
 
   double? withdraw(double value) {
     //sacar
-    if (value >= balance) {
-      balance = balance - value;
-      return balance;
-    } else {
-      return null;
-    }
+    balance = balance - value;
+    return balance;
   }
 
   double? deposit(double value) {
     //depositar
-    if (value > 0) {
-      balance = balance + value;
-      return balance;
-    } else {
-      return null;
-    }
+    balance = balance + value;
+    return balance;
   }
 
   @override
