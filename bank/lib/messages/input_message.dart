@@ -43,4 +43,16 @@ class Message {
   static void operationFailed() {
     print('\nOperação cancelada\n');
   }
+
+  static void sucessCreditPayment() {
+    print('\nPagamento com crédito realizado com sucesso\n');
+  }
+
+  static void sucessDebitPayment() {
+    print('\nPagamento com débito realizado com sucesso\n');
+  }
+
+  static void sucessTakeLoan() {
+    print('\nEmprèstimo aprovado\n');
+  }
 }

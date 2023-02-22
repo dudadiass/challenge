@@ -14,22 +14,8 @@ class CurrentAccountModel extends AccountModel {
     required super.debitCard,
   });
 
-  double? takeLoan(double value, double monthlyIncome) {
-    String? i = user.monthlyIncome;
-    if (i != '') {
-      double monthlyIncome = double.parse(i!); //STRING to DOUBLE
-      double seventyPerCent = monthlyIncome * 0.7;
-      double twentyPerCent = monthlyIncome * 0.2;
-
-      if (value >= twentyPerCent && value <= seventyPerCent) {
-        balance += value;
-        creditCard.amountSpend += value;
-        return null;
-      } else {
-        return null;
-      }
-    }
-
-    return 0;
+  double? takeLoan(double value) {
+    creditCard.amountSpend += value;
+    return creditCard.amountSpend;
   }
 }

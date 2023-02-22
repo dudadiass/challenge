@@ -1,4 +1,4 @@
-import 'package:bank/validations/deposit_account_menu_validations/value_deposit_validation.dart';
+import 'package:bank/validations/account_menu_validations/value_deposit_validation.dart';
 import 'package:test/test.dart';
 
 void main() {

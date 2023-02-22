@@ -17,13 +17,9 @@ abstract class CardModel {
     required this.user,
   });
 
-  double? debit(double value, double monthlyIncome) {
-    if (value > 0 && value <= monthlyIncome) {
-      monthlyIncome -= value;
-      return monthlyIncome;
-    } else {
-      return null;
-    }
+  double? debit(double value, double balance) {
+    balance -= value;
+    return balance;
   }
 
   @override

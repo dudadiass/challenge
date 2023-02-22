@@ -6,11 +6,11 @@ import 'package:bank/messages/input_message.dart';
 import 'package:bank/models/accounts/deposit_account_model.dart';
 import 'package:bank/models/cards/debit_card_model.dart';
 import 'package:bank/models/user/user_model.dart';
-import 'package:bank/validations/deposit_account_menu_validations/buy_debit_card_validation.dart';
-import 'package:bank/validations/deposit_account_menu_validations/render_validation.dart';
-import 'package:bank/validations/deposit_account_menu_validations/value_withdraw_validation.dart';
+import 'package:bank/validations/account_menu_validations/deposit_account_menu_validations/buy_debit_card_validation.dart';
+import 'package:bank/validations/account_menu_validations/render_validation.dart';
+import 'package:bank/validations/account_menu_validations/value_withdraw_validation.dart';
 
-import '../../../validations/deposit_account_menu_validations/value_deposit_validation.dart';
+import '../../../validations/account_menu_validations/value_deposit_validation.dart';
 
 inputDeposit(
   UserModel user,
@@ -98,7 +98,7 @@ inputBuyDebitCard(
 
   if (passwordValidation(user)) {
     if (buyDebitCardIsValid == null) {
-      depositAccount.withdraw(value);
+      debitCard.debit(value, depositAccount.balance);
       Message.sucessWithdraw();
       print('Saldo atual da conta: ' '${depositAccount.balance}\n');
       menuDepositAccount(user, depositAccount, debitCard);

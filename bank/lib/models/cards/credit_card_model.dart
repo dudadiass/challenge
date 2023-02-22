@@ -16,12 +16,8 @@ class CreditCardModel extends CardModel {
   });
 
   double? credit(double value) {
-    if (value <= limit) {
-      amountSpend += value;
-      return amountSpend;
-    } else {
-      return null;
-    }
+    amountSpend += value;
+    return amountSpend;
   }
 
   @override
