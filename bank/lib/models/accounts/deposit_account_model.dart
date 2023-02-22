@@ -20,4 +20,9 @@ class DepositAccountModel extends AccountModel {
     print('Em $daysHalf dias seu dinheiro pode render: $timeHalf');
     print('Em $daysDouble dias seu dinheiro pode render: $timeDouble');
   }
+
+  @override
+  String toString() {
+    return 'Nome do titular: ${user.name} \nAgência: $branch \nBanco: $bank \nNúmero da conta: $accountNumber \nSaldo: $balance';
+  }
 }

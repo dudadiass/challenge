@@ -3,7 +3,6 @@ import 'card_model.dart';
 class CreditCardModel extends CardModel {
   double limit;
   double amountSpend;
-
   CreditCardModel({
     required this.limit,
     required this.amountSpend,
@@ -16,12 +15,13 @@ class CreditCardModel extends CardModel {
   });
 
   double? credit(double value) {
-    amountSpend += value;
-    return amountSpend;
+    amountSpend = amountSpend + value;
+    limit = limit - value;
+    return limit;
   }
 
   @override
   String toString() {
-    return 'Limite: $limit, \nQuantia gasta: $amountSpend, \nNúmero do cartão: $numberCard, \nLogo: $networkLogo, \nCvv: $ccv, \nNome do cartão: $nameCard, \nData de expiração: $expiryDate, \nNome do usuário: $user.name';
+    return 'Nome do titular: ${user.name} \nLimite: $limit \nQuantia gasta: $amountSpend \nNúmero do cartão: $numberCard \nLogo: $networkLogo \nCVV: $ccv \nNome do cartão: $nameCard \nData de expiração: $expiryDate';
   }
 }

@@ -12,6 +12,6 @@ class DebitCardModel extends CardModel {
 
   @override
   String toString() {
-    return '\nNúmero do cartão: $numberCard, \nLogo: $networkLogo, \nCvv: $ccv, \nNome do cartão: $nameCard, \nData de expiração: $expiryDate, \nNome do usuário: $user.name';
+    return 'Nome do titular: ${user.name} \nNúmero do cartão: $numberCard \nLogo: $networkLogo \nCVV: $ccv';
   }
 }

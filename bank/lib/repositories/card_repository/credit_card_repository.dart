@@ -1,5 +1,5 @@
 import 'package:bank/models/cards/credit_card_model.dart';
-import 'package:bank/repositories/random.dart';
+import 'package:bank/repositories/generate.dart';
 
 import '../../models/user/user_model.dart';
 
@@ -34,8 +34,8 @@ CreditCardModel creditCardCreate(UserModel user) {
   String networkLogo;
 
   expiryDate = generateDate();
-  ccv = generateNumbers(3);
-  numberCard = generateNumbers(16);
+  ccv = generateRandomNumbers(3);
+  numberCard = generateRandomNumbers(16);
   nameCard = 'Ouro Card';
   networkLogo = 'Master Card';
 

@@ -18,12 +18,7 @@ abstract class CardModel {
   });
 
   double? debit(double value, double balance) {
-    balance -= value;
+    balance = balance - value;
     return balance;
-  }
-
-  @override
-  String toString() {
-    return '\nNúmero do cartão: $numberCard, \nLogo: $networkLogo, \nCVV: $ccv, \nNome do cartão: $nameCard, \nData de expiração: $expiryDate';
   }
 }

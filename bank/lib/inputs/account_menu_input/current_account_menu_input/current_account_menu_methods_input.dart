@@ -14,7 +14,7 @@ import '../../../validations/account_menu_validations/value_withdraw_validation.
 import '../request_password_input.dart';
 import 'current_account_menu_input.dart';
 
-inputDeposit(
+void inputDeposit(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
@@ -41,7 +41,7 @@ inputDeposit(
   }
 }
 
-inputWithdraw(
+void inputWithdraw(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
@@ -74,33 +74,29 @@ void inputTakeLoan(
   DebitCardModel debitCard,
   CreditCardModel creditCard,
 ) {
+  print('Informe o valor que deseja para realizar o empréstimo: ');
+  double value = double.parse(stdin.readLineSync()!);
   String? i = user.monthlyIncome;
   double monthlyIncome = double.parse(i!); //STRING to DOUBLE
-  final takeLoanIsValid = takeLoanValidation(monthlyIncome);
+  final takeLoanIsValid = takeLoanValidation(value, monthlyIncome);
 
-  if (takeLoanIsValid == null) {
-    double seventyPerCent = monthlyIncome * 0.7;
-    double twentyPerCent = monthlyIncome * 0.2;
-    print(
-        'Com base em sua renda mensal, você pode fazer um empréstimo entre $seventyPerCent e $twentyPerCent');
-    print('Informe o valor que deseja para realizar o empréstimo: ');
-    double value = double.parse(stdin.readLineSync()!);
-    if (passwordValidation(user)) {
+  if (passwordValidation(user)) {
+    if (takeLoanIsValid == null) {
       currentAccount.takeLoan(value);
       Message.sucessTakeLoan();
       backToMenu(user, currentAccount, debitCard, creditCard);
     } else {
-      Message.invalidPassword();
+      stderr.writeln(takeLoanIsValid);
+      Message.operationFailed();
       backToMenu(user, currentAccount, debitCard, creditCard);
     }
   } else {
-    stderr.writeln(takeLoanIsValid);
-    Message.operationFailed();
+    Message.invalidPassword();
     backToMenu(user, currentAccount, debitCard, creditCard);
   }
 }
 
-inputBuyVisaCard(
+void inputBuyVisaCard(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
@@ -113,8 +109,7 @@ inputBuyVisaCard(
   if (passwordValidation(user)) {
     if (buyVisaCardIsValid == null) {
       debitCard.debit(value, currentAccount.balance);
-      Message.sucessWithdraw();
-      print('Saldo atual da conta: ' '${currentAccount.balance}\n');
+      Message.sucessDebitPayment();
       menuCurrentAccount(user, currentAccount, debitCard, creditCard);
     } else {
       stderr.writeln(buyVisaCardIsValid);
@@ -127,7 +122,7 @@ inputBuyVisaCard(
   }
 }
 
-inputBuyMasterCard(
+void inputBuyMasterCard(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
@@ -146,8 +141,7 @@ inputBuyMasterCard(
       if (passwordValidation(user)) {
         if (buyVisaCardIsValid == null) {
           debitCard.debit(value, currentAccount.balance);
-          Message.sucessWithdraw();
-          print('Saldo atual da conta: ' '${currentAccount.balance}\n');
+          Message.sucessDebitPayment();
           menuCurrentAccount(user, currentAccount, debitCard, creditCard);
         } else {
           stderr.writeln(buyVisaCardIsValid);
@@ -164,7 +158,7 @@ inputBuyMasterCard(
       if (passwordValidation(user)) {
         if (buyMasterCardIsValid == null) {
           creditCard.credit(value);
-          Message.sucessWithdraw();
+          Message.sucessCreditPayment();
           print('Limite atual: ' '${creditCard.limit}\n');
           menuCurrentAccount(user, currentAccount, debitCard, creditCard);
         } else {
@@ -180,7 +174,7 @@ inputBuyMasterCard(
   }
 }
 
-showUserInputs(
+void showUserInputs(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
@@ -190,7 +184,7 @@ showUserInputs(
   backToMenu(user, currentAccount, debitCard, creditCard);
 }
 
-showcurrentAccount(
+void showcurrentAccount(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
@@ -200,7 +194,7 @@ showcurrentAccount(
   backToMenu(user, currentAccount, debitCard, creditCard);
 }
 
-showDebitCard(
+void showDebitCard(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
@@ -210,13 +204,13 @@ showDebitCard(
   backToMenu(user, currentAccount, debitCard, creditCard);
 }
 
-showCreditCard(
+void showCreditCard(
   UserModel user,
   CurrentAccountModel currentAccount,
   DebitCardModel debitCard,
   CreditCardModel creditCard,
 ) {
-  print(debitCard.toString());
+  print(creditCard.toString());
   backToMenu(user, currentAccount, debitCard, creditCard);
 }
 

@@ -12,7 +12,7 @@ import 'package:bank/validations/account_menu_validations/value_withdraw_validat
 
 import '../../../validations/account_menu_validations/value_deposit_validation.dart';
 
-inputDeposit(
+void inputDeposit(
   UserModel user,
   DepositAccountModel depositAccount,
   DebitCardModel debitCard,
@@ -38,7 +38,7 @@ inputDeposit(
   }
 }
 
-inputWithdraw(
+void inputWithdraw(
   UserModel user,
   DepositAccountModel depositAccount,
   DebitCardModel debitCard,
@@ -87,7 +87,7 @@ void inputRender(
   }
 }
 
-inputBuyDebitCard(
+void inputBuyDebitCard(
   UserModel user,
   DepositAccountModel depositAccount,
   DebitCardModel debitCard,
@@ -99,8 +99,7 @@ inputBuyDebitCard(
   if (passwordValidation(user)) {
     if (buyDebitCardIsValid == null) {
       debitCard.debit(value, depositAccount.balance);
-      Message.sucessWithdraw();
-      print('Saldo atual da conta: ' '${depositAccount.balance}\n');
+      Message.sucessDebitPayment();
       menuDepositAccount(user, depositAccount, debitCard);
     } else {
       stderr.writeln(buyDebitCardIsValid);
@@ -113,7 +112,7 @@ inputBuyDebitCard(
   }
 }
 
-showUserInputs(
+void showUserInputs(
   UserModel user,
   DepositAccountModel depositAccount,
   DebitCardModel debitCard,
@@ -122,7 +121,7 @@ showUserInputs(
   backToMenu(user, depositAccount, debitCard);
 }
 
-showDepositAccount(
+void showDepositAccount(
   UserModel user,
   DepositAccountModel depositAccount,
   DebitCardModel debitCard,
@@ -131,7 +130,7 @@ showDepositAccount(
   backToMenu(user, depositAccount, debitCard);
 }
 
-showDebitCard(
+void showDebitCard(
   UserModel user,
   DepositAccountModel depositAccount,
   DebitCardModel debitCard,

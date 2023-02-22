@@ -2,7 +2,7 @@ import 'dart:math';
 
 var rnd = Random();
 
-String generateNumbers(int numbers) {
+String generateRandomNumbers(int numbers) {
   int numberGenerated;
   var list = [];
   for (int i = 0; i < numbers; ++i) {

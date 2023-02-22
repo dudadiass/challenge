@@ -36,12 +36,15 @@ void menuDepositAccount(UserModel user, DepositAccountModel depositAccount,
     case 4:
       inputBuyDebitCard(user, depositAccount, debitCard);
       break;
+
     case 5:
       showUserInputs(user, depositAccount, debitCard);
       break;
+
     case 6:
       showDepositAccount(user, depositAccount, debitCard);
       break;
+
     case 7:
       showDebitCard(user, depositAccount, debitCard);
       break;

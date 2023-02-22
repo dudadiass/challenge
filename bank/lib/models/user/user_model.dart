@@ -1,7 +1,7 @@
 import 'address_user_model.dart';
 
 class UserModel {
-  final String name; //atributos
+  final String name;
   final String email;
   final String password;
   final String phone;
@@ -17,7 +17,7 @@ class UserModel {
     required this.cpf,
     required this.address,
     required this.monthlyIncome,
-  }); //construtor para instancia
+  });
 
   @override
   String toString() {

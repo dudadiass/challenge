@@ -53,6 +53,6 @@ class Message {
   }
 
   static void sucessTakeLoan() {
-    print('\nEmprèstimo aprovado\n');
+    print('\nEmpréstimo aprovado\n');
   }
 }

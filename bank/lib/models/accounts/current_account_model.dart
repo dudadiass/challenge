@@ -15,7 +15,12 @@ class CurrentAccountModel extends AccountModel {
   });
 
   double? takeLoan(double value) {
-    creditCard.amountSpend += value;
+    creditCard.amountSpend = creditCard.amountSpend + value;
     return creditCard.amountSpend;
+  }
+
+  @override
+  String toString() {
+    return 'Nome do titular: ${user.name} \nAgência: $branch \nBanco: $bank \nNúmero da conta: $accountNumber \nSaldo: $balance';
   }
 }
