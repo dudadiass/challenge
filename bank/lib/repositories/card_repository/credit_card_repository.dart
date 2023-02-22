@@ -26,7 +26,7 @@ double _limit(UserModel user) {
   return 0;
 }
 
-CreditCardModel creditCard(UserModel user) {
+CreditCardModel creditCardCreate(UserModel user) {
   String ccv;
   String expiryDate;
   String numberCard;

@@ -8,8 +8,8 @@ import '../../models/accounts/current_account_model.dart';
 import '../../models/user/user_model.dart';
 
 CurrentAccountModel currentAccountCreate(UserModel user) {
-  DebitCardModel cardDebit = debitCard(user);
-  late CreditCardModel cardCredit = creditCard(user);
+  DebitCardModel cardDebit = debitCardCreate(user);
+  late CreditCardModel cardCredit = creditCardCreate(user);
 
   String accountNumber;
   String branch;

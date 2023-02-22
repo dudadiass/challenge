@@ -41,6 +41,6 @@ class Message {
   }
 
   static void operationFailed() {
-    print('\nOperação cancelada');
+    print('\nOperação cancelada\n');
   }
 }

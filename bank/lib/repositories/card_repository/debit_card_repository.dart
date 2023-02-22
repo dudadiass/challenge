@@ -3,7 +3,7 @@ import 'package:bank/repositories/random.dart';
 
 import '../../models/user/user_model.dart';
 
-DebitCardModel debitCard(UserModel user) {
+DebitCardModel debitCardCreate(UserModel user) {
   String ccv;
   String expiryDate;
   String numberCard;

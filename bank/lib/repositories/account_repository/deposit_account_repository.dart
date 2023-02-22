@@ -5,7 +5,7 @@ import '../random.dart';
 import '../card_repository/debit_card_repository.dart';
 
 DepositAccountModel depositAccountCreate(UserModel user) {
-  DebitCardModel cardDebit = debitCard(user);
+  DebitCardModel cardDebit = debitCardCreate(user);
 
   String accountNumber;
   String branch;

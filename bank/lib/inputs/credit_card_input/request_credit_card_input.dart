@@ -14,7 +14,7 @@ void requestCreditCard(UserModel user) {
     tipCard = int.parse(stdin.readLineSync()!);
     if (tipCard == 1 && user.monthlyIncome != '') {
       Message.sucessCreateCreditCard();
-      creditCard(user);
+      creditCardCreate(user);
     } else if (tipCard == 1 && user.monthlyIncome == '') {
       Message.failCreateCrediCard();
     } else if (tipCard != 2) {
