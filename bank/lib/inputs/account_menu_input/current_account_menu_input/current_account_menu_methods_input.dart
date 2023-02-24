@@ -1,9 +1,6 @@
 import 'dart:io';
 
 import 'package:bank/models/accounts/current_account_model.dart';
-import 'package:bank/models/cards/credit_card_model.dart';
-import 'package:bank/models/cards/debit_card_model.dart';
-import 'package:bank/models/user/user_model.dart';
 import 'package:bank/validations/account_menu_validations/current_account_menu_validations/buy_master_card_validation.dart';
 import 'package:bank/validations/account_menu_validations/current_account_menu_validations/take_loan_validation.dart';
 
@@ -15,118 +12,80 @@ import '../request_password_input.dart';
 import 'current_account_menu_input.dart';
 
 void inputDeposit(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
   print("\nDigite o valor que deseja depositar:");
   double value = double.parse(stdin.readLineSync()!);
   final valueDepositIsValid = valueDepositValidation(value);
 
-  if (passwordValidation(user)) {
+  if (passwordValidation(currentAccount.user)) {
     if (valueDepositIsValid == null) {
       currentAccount.deposit(value);
       Message.sucessDeposit();
       print('Saldo atual da conta: ' '${currentAccount.balance}\n');
-      menuCurrentAccount(user, currentAccount, debitCard, creditCard);
+      backToMenu(currentAccount);
     } else {
       stderr.writeln(valueDepositIsValid);
       Message.operationFailed();
-      backToMenu(user, currentAccount, debitCard, creditCard);
+      backToMenu(currentAccount);
     }
   } else {
     Message.invalidPassword();
-    backToMenu(user, currentAccount, debitCard, creditCard);
+    backToMenu(currentAccount);
   }
 }
 
 void inputWithdraw(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
   print("\nDigite o valor que deseja sacar:");
   double value = double.parse(stdin.readLineSync()!);
   final valueWithdrawIsValid = valueWithdraw(value, currentAccount.balance);
 
-  if (passwordValidation(user)) {
+  if (passwordValidation(currentAccount.user)) {
     if (valueWithdrawIsValid == null) {
       currentAccount.withdraw(value);
       Message.sucessWithdraw();
       print('Saldo atual da conta: ' '${currentAccount.balance}\n');
-      menuCurrentAccount(user, currentAccount, debitCard, creditCard);
+      backToMenu(currentAccount);
     } else {
       stderr.writeln(valueWithdrawIsValid);
       Message.operationFailed();
-      backToMenu(user, currentAccount, debitCard, creditCard);
+      backToMenu(currentAccount);
     }
   } else {
     Message.invalidPassword();
-    backToMenu(user, currentAccount, debitCard, creditCard);
+    backToMenu(currentAccount);
   }
 }
 
 void inputTakeLoan(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
   print('Informe o valor que deseja para realizar o empréstimo: ');
   double value = double.parse(stdin.readLineSync()!);
-  String? i = user.monthlyIncome;
+  String? i = currentAccount.user.monthlyIncome;
   double monthlyIncome = double.parse(i!); //STRING to DOUBLE
   final takeLoanIsValid = takeLoanValidation(value, monthlyIncome);
 
-  if (passwordValidation(user)) {
+  if (passwordValidation(currentAccount.user)) {
     if (takeLoanIsValid == null) {
       currentAccount.takeLoan(value);
       Message.sucessTakeLoan();
-      backToMenu(user, currentAccount, debitCard, creditCard);
+      backToMenu(currentAccount);
     } else {
       stderr.writeln(takeLoanIsValid);
       Message.operationFailed();
-      backToMenu(user, currentAccount, debitCard, creditCard);
+      backToMenu(currentAccount);
     }
   } else {
     Message.invalidPassword();
-    backToMenu(user, currentAccount, debitCard, creditCard);
-  }
-}
-
-void inputBuyVisaCard(
-  UserModel user,
-  CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
-) {
-  print("\nDigite o valor que deseja pagar com o cartão:");
-  double value = double.parse(stdin.readLineSync()!);
-  final buyVisaCardIsValid = buyVisaCard(value, currentAccount.balance);
-
-  if (passwordValidation(user)) {
-    if (buyVisaCardIsValid == null) {
-      debitCard.debit(value, currentAccount.balance);
-      Message.sucessDebitPayment();
-      menuCurrentAccount(user, currentAccount, debitCard, creditCard);
-    } else {
-      stderr.writeln(buyVisaCardIsValid);
-      Message.operationFailed();
-      backToMenu(user, currentAccount, debitCard, creditCard);
-    }
-  } else {
-    Message.invalidPassword();
-    backToMenu(user, currentAccount, debitCard, creditCard);
+    backToMenu(currentAccount);
   }
 }
 
 void inputBuyMasterCard(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
   int opCard = 0;
   print('Informe o valor que deseja pagar:');
@@ -138,87 +97,66 @@ void inputBuyMasterCard(
   switch (opCard) {
     case 1:
       final buyVisaCardIsValid = buyVisaCard(value, currentAccount.balance);
-      if (passwordValidation(user)) {
+      if (passwordValidation(currentAccount.user)) {
         if (buyVisaCardIsValid == null) {
-          debitCard.debit(value, currentAccount.balance);
+          currentAccount.creditCard.debit(value, currentAccount.balance);
           Message.sucessDebitPayment();
-          menuCurrentAccount(user, currentAccount, debitCard, creditCard);
+          backToMenu(currentAccount);
         } else {
           stderr.writeln(buyVisaCardIsValid);
           Message.operationFailed();
-          backToMenu(user, currentAccount, debitCard, creditCard);
+          backToMenu(currentAccount);
         }
       } else {
         Message.invalidPassword();
-        backToMenu(user, currentAccount, debitCard, creditCard);
+        backToMenu(currentAccount);
       }
       break;
     case 2:
-      final buyMasterCardIsValid = buyMasterCard(value, creditCard.limit);
-      if (passwordValidation(user)) {
+      final buyMasterCardIsValid =
+          buyMasterCard(value, currentAccount.creditCard.limit);
+      if (passwordValidation(currentAccount.user)) {
         if (buyMasterCardIsValid == null) {
-          creditCard.credit(value);
+          currentAccount.creditCard.credit(value);
           Message.sucessCreditPayment();
-          print('Limite atual: ' '${creditCard.limit}\n');
-          menuCurrentAccount(user, currentAccount, debitCard, creditCard);
+          print('Limite atual: ' '${currentAccount.creditCard.limit}\n');
+          backToMenu(currentAccount);
         } else {
           stderr.writeln(buyMasterCardIsValid);
           Message.operationFailed();
-          backToMenu(user, currentAccount, debitCard, creditCard);
+          backToMenu(currentAccount);
         }
       } else {
         Message.invalidPassword();
-        backToMenu(user, currentAccount, debitCard, creditCard);
+        backToMenu(currentAccount);
       }
       break;
   }
 }
 
 void showUserInputs(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
-  print(user.toString());
-  backToMenu(user, currentAccount, debitCard, creditCard);
+  print(currentAccount.user.toString());
+  backToMenu(currentAccount);
 }
 
 void showcurrentAccount(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
   print(currentAccount.toString());
-  backToMenu(user, currentAccount, debitCard, creditCard);
-}
-
-void showDebitCard(
-  UserModel user,
-  CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
-) {
-  print(debitCard.toString());
-  backToMenu(user, currentAccount, debitCard, creditCard);
+  backToMenu(currentAccount);
 }
 
 void showCreditCard(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
-  print(creditCard.toString());
-  backToMenu(user, currentAccount, debitCard, creditCard);
+  print(currentAccount.creditCard.toString());
+  backToMenu(currentAccount);
 }
 
 void backToMenu(
-  UserModel user,
   CurrentAccountModel currentAccount,
-  DebitCardModel debitCard,
-  CreditCardModel creditCard,
 ) {
-  menuCurrentAccount(user, currentAccount, debitCard, creditCard);
+  menuCurrentAccount(currentAccount);
 }

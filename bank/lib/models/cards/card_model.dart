@@ -5,7 +5,7 @@ abstract class CardModel {
   final String networkLogo;
   final String ccv;
   final String nameCard;
-  final String expiryDate;
+  String expiryDate;
   final UserModel user;
 
   CardModel({
@@ -17,7 +17,7 @@ abstract class CardModel {
     required this.user,
   });
 
-  double? debit(double value, double balance) {
+  double debit(double value, double balance) {
     balance = balance - value;
     return balance;
   }

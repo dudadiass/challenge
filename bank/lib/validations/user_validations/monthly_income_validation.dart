@@ -1,6 +1,6 @@
-String? monthlyIncomeValidation(String monthlyIncome) {
+String? monthlyIncomeValidation(String? monthlyIncome) {
   final monthlyIcomeRegx = RegExp(r"^([0-9]+)(\.)([0-9]{2})$");
-  if (monthlyIncome.trim().isEmpty) {
+  if (monthlyIncome!.trim().isEmpty) {
     return null;
   }
   if (monthlyIcomeRegx.hasMatch(monthlyIncome)) {

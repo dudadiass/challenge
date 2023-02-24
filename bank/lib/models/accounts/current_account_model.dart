@@ -9,12 +9,10 @@ class CurrentAccountModel extends AccountModel {
     required super.branch,
     required super.bank,
     required super.accountNumber,
-    required super.balance,
     required super.user,
-    required super.debitCard,
   });
 
-  double? takeLoan(double value) {
+  double takeLoan(double value) {
     creditCard.amountSpend = creditCard.amountSpend + value;
     return creditCard.amountSpend;
   }

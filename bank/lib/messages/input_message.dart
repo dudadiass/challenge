@@ -55,4 +55,9 @@ class Message {
   static void sucessTakeLoan() {
     print('\nEmpréstimo aprovado\n');
   }
+
+  static void failCreateCurrentAccount() {
+    print(
+        '\nNão foi possível criar uma conta corrente pois você não possui uma renda mensal\n');
+  }
 }

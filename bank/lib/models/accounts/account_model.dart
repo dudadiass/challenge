@@ -1,5 +1,3 @@
-import 'package:bank/models/cards/debit_card_model.dart';
-
 import '../user/user_model.dart';
 
 abstract class AccountModel {
@@ -7,24 +5,21 @@ abstract class AccountModel {
   final String bank;
   final String accountNumber;
   final UserModel user;
-  final DebitCardModel debitCard;
 
   double balance;
   AccountModel({
     required this.branch,
     required this.bank,
     required this.accountNumber,
-    required double balance,
     required this.user,
-    required this.debitCard,
   }) : balance = 0;
 
-  double? withdraw(double value) {
+  double withdraw(double value) {
     balance = balance - value;
     return balance;
   }
 
-  double? deposit(double value) {
+  double deposit(double value) {
     balance = balance + value;
     return balance;
   }

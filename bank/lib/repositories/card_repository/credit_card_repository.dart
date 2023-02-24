@@ -3,7 +3,7 @@ import 'package:bank/repositories/generate.dart';
 
 import '../../models/user/user_model.dart';
 
-double _limit(UserModel user) {
+double limit(UserModel user) {
   String? i = user.monthlyIncome;
   if (i != '') {
     double monthlyIncome = double.parse(i!); //STRING to DOUBLE
@@ -43,7 +43,7 @@ CreditCardModel creditCardCreate(UserModel user) {
     amountSpend: 0,
     ccv: ccv,
     expiryDate: expiryDate,
-    limit: _limit(user),
+    limit: limit(user),
     nameCard: nameCard,
     networkLogo: networkLogo,
     numberCard: numberCard,

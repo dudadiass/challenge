@@ -14,7 +14,7 @@ class CreditCardModel extends CardModel {
     required super.user,
   });
 
-  double? credit(double value) {
+  double credit(double value) {
     amountSpend = amountSpend + value;
     limit = limit - value;
     return limit;

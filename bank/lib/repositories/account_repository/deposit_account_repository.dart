@@ -20,7 +20,6 @@ DepositAccountModel depositAccountCreate(UserModel user) {
     branch: branch,
     bank: bank,
     accountNumber: accountNumber,
-    balance: 0,
     user: user,
     debitCard: cardDebit,
   );
