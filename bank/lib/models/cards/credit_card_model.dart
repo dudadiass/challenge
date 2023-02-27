@@ -1,8 +1,9 @@
 import 'card_model.dart';
 
 class CreditCardModel extends CardModel {
-  double limit;
+  final double limit;
   double amountSpend;
+  double get availableLimit => limit - amountSpend;
   CreditCardModel({
     required this.limit,
     required this.amountSpend,
@@ -16,7 +17,6 @@ class CreditCardModel extends CardModel {
 
   double credit(double value) {
     amountSpend = amountSpend + value;
-    limit = limit - value;
     return limit;
   }
 

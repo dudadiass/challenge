@@ -14,13 +14,13 @@ import 'user_address_input.dart';
 
 UserModel userCreate() {
   String? nameIsValid;
-  String name;
+  String? name;
 
   print('\nCadastre um usuário');
 
   do {
     print('\nInforme seu nome:');
-    name = stdin.readLineSync()!;
+    name = stdin.readLineSync();
     nameIsValid = nameValidation(name);
     if (nameIsValid != null) {
       stderr.writeln(nameIsValid);
@@ -75,12 +75,12 @@ UserModel userCreate() {
     }
   } while (passwordIsValid != null);
 
-  String monthlyIncome;
+  String? monthlyIncome;
   String? monthlyIncomeIsValid;
 
   do {
     print('\nInforme sua rensa mensal (opcional):');
-    monthlyIncome = stdin.readLineSync()!;
+    monthlyIncome = stdin.readLineSync();
     monthlyIncomeIsValid = monthlyIncomeValidation(monthlyIncome);
     if (monthlyIncomeIsValid != null) {
       stderr.writeln(monthlyIncomeIsValid);
@@ -90,7 +90,7 @@ UserModel userCreate() {
   AddressUserModel addressUserModel = userAddressModelCreation();
 
   UserModel user = UserModel(
-      name: name,
+      name: name!,
       address: addressUserModel,
       cpf: cpf,
       monthlyIncome: monthlyIncome,
